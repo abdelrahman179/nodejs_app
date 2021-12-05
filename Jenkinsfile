@@ -13,7 +13,6 @@ pipeline {
         }
         stage('preparation') {
               steps {
-                  // Get some code from a GitHub repository
                   git 'https://github.com/abdelrahman179/nodejs_app.git'
               }
 
@@ -21,7 +20,6 @@ pipeline {
         stage("CI") {
             steps {
                 script {
-                    echo "Building the app ... "
                     gv.CI()
                 }
             }
@@ -29,7 +27,6 @@ pipeline {
         stage("CD") {
             steps {
                 script {
-                    echo "Deploying to DockerHub ... "
                     gv.CD()
                 }
             }
