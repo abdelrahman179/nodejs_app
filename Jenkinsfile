@@ -2,8 +2,8 @@
 def gv
 
 pipeline {
-    //agent any
-    agent {label "aws"}
+    agent any
+    // agent {label "aws"}
     stages {
         stage("init") {
             steps {
@@ -31,6 +31,14 @@ pipeline {
                     gv.CD()
                 }
             }
+        }
+        post {
+          success {
+              slackSend(color: "good", message: "Nodejs app image built, pushed and up and running on port 3000.")
+          }
+          success {
+              slackSend(color: "good", message: "Nodejs app image built, pushed and up and running on port 3000.")
+          }
         }
     }   
 }
