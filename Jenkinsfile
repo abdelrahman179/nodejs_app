@@ -2,7 +2,8 @@
 def gv
 
 pipeline {
-    agent any
+    //agent any
+    agent {label "aws"}
     stages {
         stage("init") {
             steps {
