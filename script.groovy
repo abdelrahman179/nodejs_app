@@ -1,5 +1,5 @@
 def CI() {
-    echo "building the docker image..."
+    echo "Building the docker image..."
      withCredentials([usernamePassword(credentialsId: 'Docker_Hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                     sh 'docker build . -f dockerfile -t abdelrahmanzaki179/node-js-app:latest'
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
