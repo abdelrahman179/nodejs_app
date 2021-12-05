@@ -36,8 +36,8 @@ pipeline {
           success {
               slackSend(color: "good", message: "Nodejs app image built, pushed and up and running on port 3000.")
           }
-          success {
-              slackSend(color: "good", message: "Nodejs app image built, pushed and up and running on port 3000.")
+          failure {
+              slackSend(color: "danger", message: "Nodejs app failed to build the image")
           }
         }
     }   
